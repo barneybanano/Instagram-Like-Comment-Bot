@@ -99,11 +99,11 @@ for hashtag in hashtag_list:
         # Check if the post is already liked
         # If not, then like, comment, and go to next post
         try:
-            browser.find_element_by_xpath("//*[@aria-label='Unlike']")
+            browser.find_element(By.XPATH, "//*[contains(@class, 'fr66n')]/button/div/*[*[local-name()='svg']/@aria-label='Unlike']/*").click()
             logger.info("Already liked this post")
         except Exception:
             # Like
-            browser.find_element_by_xpath("//*[@aria-label='Like']").click()
+            browser.find_element(By.XPATH, "//*[contains(@class, 'fr66n')]/button/div/*[*[local-name()='svg']/@aria-label='Like']/*").click()
             logger.info("Liked")
             likes += 1
 
